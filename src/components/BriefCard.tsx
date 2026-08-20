@@ -157,11 +157,9 @@ export function BriefCard({
           <div className="space-y-3">
             {brief.monetization.map((m) => (
               <div key={m.model} className="rounded-lg border border-border p-3">
-                <div className="flex items-center justify-between gap-2">
-                  <span className="font-semibold">{m.model}</span>
-                  <Badge variant="outline">{m.potential}</Badge>
-                </div>
+                <div className="font-semibold">{m.model}</div>
                 <p className="mt-1 text-sm text-muted-foreground">{m.description}</p>
+                <p className="mt-2 text-xs text-accent">Потенциал: {m.potential}</p>
               </div>
             ))}
           </div>
