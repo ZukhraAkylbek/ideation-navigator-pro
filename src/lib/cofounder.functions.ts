@@ -37,7 +37,7 @@ export const briefSchema = z.object({
 export type Brief = z.infer<typeof briefSchema>;
 
 export const generateBrief = createServerFn({ method: "POST" })
-  .inputValidator((input: unknown) => z.object({ idea: z.string().min(5).max(2000) }).parse(input))
+  .validator((input: unknown) => z.object({ idea: z.string().min(5).max(2000) }).parse(input))
   .handler(async ({ data }) => {
     const key = process.env["LOVABLE_API_KEY"];
     if (!key) throw new Error("AI не настроен: отсутствует ключ API.");
